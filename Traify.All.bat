@@ -4,6 +4,8 @@
 
 :: General note on .BAT file:
 
+:::: You can edit this file with notepad++ or any text editor ::::
+
 :: - lines beginning with "::" are comments and are also used to disable unused code.
 :: - lines beginning with ":" are labels for goto statement, used to skip blocs.
 
@@ -41,6 +43,8 @@ mkdir "ModFolder"\Other_traified
 ::mkdir "ModFolder"\"Choose different name"_traified
 
 :other_tra_exists
+
+:::: This part is not tested and mostly not used ::::
 
 :: weidu --nogame --traify Setup-Branwen.tp2 --traify-old-tra setup.tra --out setup-new --traify-comment
 
