@@ -9,10 +9,9 @@
 :: - lines beginning with "::" are comments and are also used to disable unused code.
 :: - lines beginning with ":" are labels for goto statement, used to skip blocs.
 
-:: WARNING :: this .bat files need to be used in your game folder
-:: WARNING :: this .bat files need to be in the same folder that your "ModFolder"
-:: WARNING :: this .bat files need also to have weidu.exe in the same folder
-
+:: WARNING :: this .bat file must be used in your game folder,
+:: WARNING ::   with the mod that you want to traify,
+:: WARNING ::     and a weidu.exe.
 
 
 :: Create the directory for traified dialogs
@@ -64,24 +63,24 @@ mkdir "ModFolder"\Other_traified
 :: means .d or else are traified (with each files starting at @"chosen number", like this "--traify# 1100" or "--traify# 1562") but do not keep the text "uncommented" in .d 
 
 :: INFO ::  weidu --nogame --traify "ModFolder"\"Folder"\"dialog".d       --traify-comment --traify#    --out "ModFolder"\Dialogue_traified\"dialog" 
-::means .d or else are traified (with each files start at @"chosen number", like this "--traify# 1100" or "--traify# 1562") and (keep also the text in .d but "uncommented" inside /*...*/
+:: means .d or else are traified (with each files start at @"chosen number", like this "--traify# 1100" or "--traify# 1562") and (keep also the text in .d but "uncommented" inside /*...*/
 
 
 :: Here are some examples, you have to replace the names of the files below by those of your mod and adapt the files path, one line for each .d or else.
 
 :: "Dialogue.d Files"
 
-weidu --nogame --traify Branwen\Dialogue\Bran.d     --out Branwen\Dialogue_traified\BranEE
-weidu --nogame --traify Branwen\Dialogue\d\Bran.d   --out Branwen\Dialogue_traified\d\BranEE
+weidu --nogame --traify Branwen\Dialogue\Bran.d     --out Branwen\Dialogue_traified\Bran
+weidu --nogame --traify Branwen\Dialogue\d\Branw.d   --out Branwen\Dialogue_traified\d\Branw
 
 weidu --nogame --traify Branwen\dialogue\minsc.d  				--traify# 500					--out Branwen\dialogue_traified\minsc
-weidu --nogame --traify Branwen\dialogue\d\minsc.d  			--traify# 100000				--out Branwen\dialogue_traified\d\minsc
+weidu --nogame --traify Branwen\dialogue\D\dialog.d  			--traify# 100000				--out Branwen\dialogue_traified\D\dialog
 
-weidu --nogame --traify Branwen\dialogue\minsc.d    	--traify-comment				--out Anymod\dialogue_traified\anyfile
-weidu --nogame --traify Branwen\dialogue\d\minsc.d  	--traify-comment				--out Anymod\dialogue_traified\anyfile
+weidu --nogame --traify Branwen\dialogue\minsc.d    	--traify-comment				--out Anymod\dialogue_traified\minsc
+weidu --nogame --traify Branwen\dialogue\D\dialog.d  	--traify-comment				--out Anymod\dialogue_traified\d\dialog
 
-weidu --nogame --traify Branwen\dialogue\minsc.d  		--traify-comment --traify# 637 		--out Anymod\dialogue_traified\".d name"
-weidu --nogame --traify Branwen\dialogue\d\minsc.d		--traify-comment --traify# 3500		--out Anymod\dialogue_traified\".d name"
+weidu --nogame --traify Branwen\dialogue\minsc.d  		--traify-comment --traify# 637 		--out Anymod\dialogue_traified\minsc
+weidu --nogame --traify Branwen\dialogue\D\dialog.d		--traify-comment --traify# 3500		--out Anymod\dialogue_traified\D\dialog
 
 weidu --nogame --traify "AnyModFolder"\"AnyFolder"\"AnyFile".d  	             --traify-comment	 --out "AnyModFolder"\dialogue_traified\"AnyFile"
 weidu --nogame --traify "AnyModFolder"\"AnyFolder"\"AnySubFolder"\"anyfile".d  	 --traify-comment	 --out "AnyModFolder"\dialogue_traified\"AnySubfolder"\"AnyFile"
@@ -112,7 +111,7 @@ weidu --nogame --traify Branwen\lib\component1\Auril.tpa    --traify-comment --t
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::: NOT TESTED::::::::::::::::::::::::
+::::::::::: NOT TESTED THOROUGHLY ::::::::::::::::::::::::
 
 :: merges all .d, .tpa or else in one single .tra (every .tra @"number" should be different )
 
@@ -128,6 +127,7 @@ weidu --nogame --traify Branwen\lib\component1\Auril.tpa    --traify-comment --t
 
 
 ::::::::: Warning NOT working for "Scripts" .baf Files ::::::::::::::::: Do not use and  Traify script manually :::::::
+:: at least, I didn't manage to make it work...
 
 ::weidu --nogame --traify "ModFolder"\Scripts\"script name".baf --out "ModFolder"\Other_traified\"script name"
 :: Maybe watch for unique string @"" too
@@ -137,7 +137,7 @@ weidu --nogame --traify Branwen\lib\component1\Auril.tpa    --traify-comment --t
 
 ::weidu --nogame --traify "AnyModFolder"\"AnyFolder"\"AnySubFolder"\"Anyfile".baf     --traify# 1500 	--out "AnyModFolder"\Other_traified\"AnySubFolder"\"Anyfile"
 
-::weidu --nogame --traify Branwen\Scripts\O#BranF.baf 							--traify# 1550		--out Branwen\Other_traified\O#BranF
+::weidu --nogame --traify Branwen\Scripts\O#BranF.baf 		--traify# 1550		--out Branwen\Other_traified\O#BranF
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
